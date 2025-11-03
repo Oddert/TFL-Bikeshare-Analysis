@@ -6,4 +6,4 @@ setuptools
 # sweetviz
 # numpy==1.23.4
 lux
-
+plotly.express
