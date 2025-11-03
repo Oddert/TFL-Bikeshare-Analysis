@@ -29,7 +29,7 @@ print("---------")
 print("Number of stations with no response from the TFL API: ", len(stations_no_result))
 print(stations_no_result)
 
-requeried_stations = {}
+osm_queried_stations = {}
 
 for station in stations_no_result:
     print(f'Attempting OpenStreetMap query for "{station}"')
@@ -40,13 +40,13 @@ for station in stations_no_result:
         )
         print(response)
         sleep(5)
-        requeried_stations[station] = response.json()
+        osm_queried_stations[station] = response.json()
     except Exception as ex:
         print(ex)
 
-print(requeried_stations)
+print(osm_queried_stations)
 
-full_response_json_str = json.dumps(requeried_stations)
+full_response_json_str = json.dumps(osm_queried_stations)
 
 with open(OSM_STATIONS, "w", encoding="utf8") as f:
     f.write(full_response_json_str)

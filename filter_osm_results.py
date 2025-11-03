@@ -16,17 +16,17 @@ from constants.dataset_paths import OSM_STATIONS, OSM_FILTERED
 
 with open(OSM_STATIONS, "r", encoding="utf8") as f:
     print(f)
-    requeried_stations = json.load(f)
-    print(requeried_stations)
+    osm_queried_stations = json.load(f)
+    print(osm_queried_stations)
 
-    number_requeried = len(requeried_stations)
+    number_osm_queried = len(osm_queried_stations)
     filtered_response = {}
 
     def select_from_multiple_choice(station_name: str, choices: List[dict]):
         """Prompts users to select from one or more choices from the OSM API."""
         print("   ")
         print(
-            f'Item {idx}/{number_requeried} "{station_name}", has multiple results. Please choose from this list: '
+            f'Item {idx}/{number_osm_queried} "{station_name}", has multiple results. Please choose from this list: '
         )
         print("   ")
 
@@ -55,13 +55,13 @@ with open(OSM_STATIONS, "r", encoding="utf8") as f:
 
         filtered_response[station_name] = choices[int(user_input)] # type: ignore
 
-    for idx, station in enumerate(requeried_stations):
-        item = requeried_stations[station]
+    for idx, station in enumerate(osm_queried_stations):
+        item = osm_queried_stations[station]
         print("        ")
         print("--------")
         print("        ")
         if len(item) == 0:
-            print(f'Item {idx}/{number_requeried} "{station}" has no entries.')
+            print(f'Item {idx}/{number_osm_queried} "{station}" has no entries.')
 
             query_loop = True
             while query_loop:
@@ -109,8 +109,8 @@ with open(OSM_STATIONS, "r", encoding="utf8") as f:
                 else:
                     print("Please enter yes or no.")
         elif len(item) == 1:
-            print(f"Item {idx}/{number_requeried} has only 1 entry, writing that one.")
-            filtered_response[station] = requeried_stations[station][0]
+            print(f"Item {idx}/{number_osm_queried} has only 1 entry, writing that one.")
+            filtered_response[station] = osm_queried_stations[station][0]
         else:
             select_from_multiple_choice(station, item)
 
