@@ -1,0 +1,9 @@
+kagglehub
+pandas
+setuptools
+# sweetviz==2.3.1
+# numpy==2.0.1
+# sweetviz
+# numpy==1.23.4
+lux
+
