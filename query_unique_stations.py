@@ -9,6 +9,7 @@ from time import sleep
 
 import pandas as pd
 
+from config import TFL_APP_ID
 from constants.dataset_paths import TFL_STATIONS
 
 df = pd.read_csv(
@@ -33,17 +34,15 @@ print(len(unique_total))
 
 stations_queried = {}
 
-app_id = "097cb67e122744e591dc5aeabfdf8883"
-
 for i, station in enumerate(unique_total):
-    url = f"https://api.tfl.gov.uk/BikePoint/Search?query={station}&app_id={app_id}"
+    url = f"https://api.tfl.gov.uk/BikePoint/Search?query={station}&app_id={TFL_APP_ID}"
     print(url)
     print("Count: ", i)
     response = requests.get(url, timeout=3000)
-    r = response.json()
-    stations_queried[station] = r
+    response_json = response.json()
+    stations_queried[station] = response_json
     sleep(0.3)
-    print(r)
+    print(response_json)
 
 json_str = json.dumps(stations_queried)
 
