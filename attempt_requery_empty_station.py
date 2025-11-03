@@ -5,12 +5,15 @@ Depends on the output from `query_unique_stations.py`.
 """
 
 import json
-import requests
 from time import sleep
+
+import requests
+
+from constants.dataset_paths import OSM_STATIONS, TFL_STATIONS
 
 stations_no_result = {}
 
-with open("./tfl-supplied-stations.json", "r", encoding="utf8") as f:
+with open(TFL_STATIONS, "r", encoding="utf8") as f:
     print(f)
     queried_stations = json.load(f)
     print(queried_stations)
@@ -45,5 +48,5 @@ print(requeried_stations)
 
 full_response_json_str = json.dumps(requeried_stations)
 
-with open("osm-supplied-stations.json", "w", encoding="utf8") as f:
+with open(OSM_STATIONS, "w", encoding="utf8") as f:
     f.write(full_response_json_str)

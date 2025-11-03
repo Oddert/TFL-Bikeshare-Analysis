@@ -9,6 +9,8 @@ from time import sleep
 
 import pandas as pd
 
+from constants.dataset_paths import TFL_STATIONS
+
 df = pd.read_csv(
     "./datasets/kalacheva/london-bike-share-usage-dataset/versions/1/LondonBikeJourneyAug2023.csv"
 )
@@ -45,5 +47,5 @@ for i, station in enumerate(unique_total):
 
 json_str = json.dumps(stations_queried)
 
-with open("tfl-supplied-stations.json", "w", encoding="utf8") as f:
+with open(TFL_STATIONS, "w", encoding="utf8") as f:
     f.write(json_str)
