@@ -7,3 +7,5 @@ setuptools
 # numpy==1.23.4
 lux
 plotly.express
+dash
+dash-bootstrap-components
