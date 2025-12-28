@@ -1,5 +1,6 @@
 """ """
 
+from datetime import datetime
 from typing import List
 
 from dash import callback, Dash, dcc, html, Input, Output
@@ -136,7 +137,8 @@ sidebar = html.Div(
 
 content = html.Div(
     [
-        dcc.Graph(id='graph-content'),
+        dcc.RangeSlider(1, 31, 1, value=[1, 31], id='range-date'),
+        dcc.Graph(id='graph-line'),
     ],
     style=CONTENT_STYLE,
 )
@@ -155,12 +157,13 @@ print(df_merged.columns)
 
 
 @callback(
-    Output('graph-content', 'figure'),
+    Output('graph-line', 'figure'),
     Input('radio-compare', 'value'),
     Input('radio-weather', 'value'),
     Input('radio-mode', 'value'),
     Input('dropdown-start_station', 'value'),
     Input('checkbox-use_ratio', 'value'),
+    Input('range-date', 'value'),
 )
 def graph(
     compare_mode: str,
@@ -168,12 +171,23 @@ def graph(
     mode: str,
     start_station: str,
     use_ratio: List[str],
+    range_date: List[int],
 ):
+    start_date = datetime(2023, 8, range_date[0])
+    end_date = datetime(2023, 8, range_date[1], 23, 59, 59)
+
+    print(df_merged['date_day'])
+    print(type(df_merged['date_day']))
+    print(df_merged['date_day'][0])
+    print(type(df_merged['date_day'][0]))
+
+    date_mask = (df_merged['date_day'] >= start_date) & (df_merged['date_day'] <= end_date)
+
     if mode == 'station':
-        mask = df_bike_data['Start station'] == start_station
+        mask = date_mask & df_merged['Start station'] == start_station
         dff = df_merged[mask]
     else:
-        dff = df_merged
+        dff = df_merged[date_mask]
 
     y1_label = (
         'Average Trip Duration (ms)' if compare_mode == 'duration' else 'Trips Started'
@@ -223,7 +237,7 @@ def graph(
         legend=dict(x=0.01, y=0.99),
     )
 
-    fig.update_xaxes(rangeslider_visible=True)
+    # fig.update_xaxes(rangeslider_visible=True)
 
     return fig
 
