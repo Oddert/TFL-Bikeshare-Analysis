@@ -1,3 +1,11 @@
+"""
+Visualises the number of total pickups per start station across the entire dataset.
+
+Displays a bar graph with one bar per station.
+
+Standard Plotly output.
+"""
+
 import pandas as pd
 
 import plotly.express as px
@@ -17,4 +25,6 @@ df_sorted = (
 )
 print(df_sorted)
 
-px.bar(df_sorted, x='Start station', y='count')
+fig = px.bar(df_sorted, x='Start station', y='count')
+
+fig.show()

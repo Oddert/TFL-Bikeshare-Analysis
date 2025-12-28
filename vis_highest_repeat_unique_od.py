@@ -1,3 +1,9 @@
+"""
+Displays a bar chart of the top ten most common trips by number of trips counted.
+
+Standard Plotly output.
+"""
+
 import pandas as pd
 
 import plotly.express as px
@@ -24,4 +30,6 @@ df_unique_od = (
 df_sorted = df_unique_od.sort_values('count', ascending=False).reset_index().head(10)
 print(df_sorted)
 
-px.bar(df_sorted, x='Start station', y='count')
+fig = px.bar(df_sorted, x='Start station', y='count')
+
+fig.show()

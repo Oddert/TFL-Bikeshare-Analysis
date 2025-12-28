@@ -1,10 +1,10 @@
-'''
+"""
 Downloads and joins the weather dataset to the main bike-share dataset.
 
 Depending on comments, plots either the trip count or duration versus Precipitation.
 
-Standard plotly output.
-'''
+Standard Plotly output.
+"""
 
 import kagglehub
 

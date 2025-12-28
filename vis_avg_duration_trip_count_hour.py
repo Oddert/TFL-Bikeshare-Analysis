@@ -1,3 +1,11 @@
+"""
+Produces a line graph showing the average trip duration and number of trips started.
+
+Data grouped by hour.
+
+Standard Plotly output.
+"""
+
 import pandas as pd
 import plotly.graph_objects as go
 
