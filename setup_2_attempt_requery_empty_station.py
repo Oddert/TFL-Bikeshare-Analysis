@@ -13,7 +13,7 @@ from constants.dataset_paths import OSM_STATIONS, TFL_STATIONS
 
 stations_no_result = {}
 
-with open(TFL_STATIONS, "r", encoding="utf8") as f:
+with open(TFL_STATIONS, 'r', encoding='utf8') as f:
     print(f)
     queried_stations = json.load(f)
     print(queried_stations)
@@ -25,8 +25,8 @@ with open(TFL_STATIONS, "r", encoding="utf8") as f:
             stations_no_result[item] = queried_stations[item]
             # print('no items')
 
-print("---------")
-print("Number of stations with no response from the TFL API: ", len(stations_no_result))
+print('---------')
+print('Number of stations with no response from the TFL API: ', len(stations_no_result))
 print(stations_no_result)
 
 osm_queried_stations = {}
@@ -34,9 +34,9 @@ osm_queried_stations = {}
 for station in stations_no_result:
     print(f'Attempting OpenStreetMap query for "{station}"')
     try:
-        url = f"https://nominatim.openstreetmap.org/search?q={station}&format=json&countrycodes=gb"
+        url = f'https://nominatim.openstreetmap.org/search?q={station}&format=json&countrycodes=gb'
         response = requests.get(
-            url, timeout=3000, headers={"User-Agent": "robyn veitch"}
+            url, timeout=3000, headers={'User-Agent': 'robyn veitch'}
         )
         print(response)
         sleep(5)
@@ -48,5 +48,5 @@ print(osm_queried_stations)
 
 full_response_json_str = json.dumps(osm_queried_stations)
 
-with open(OSM_STATIONS, "w", encoding="utf8") as f:
+with open(OSM_STATIONS, 'w', encoding='utf8') as f:
     f.write(full_response_json_str)

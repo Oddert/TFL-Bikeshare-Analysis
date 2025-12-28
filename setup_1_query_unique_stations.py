@@ -13,11 +13,11 @@ from config import TFL_APP_ID
 from constants.dataset_paths import TFL_STATIONS
 
 df = pd.read_csv(
-    "./datasets/kalacheva/london-bike-share-usage-dataset/versions/1/LondonBikeJourneyAug2023.csv"
+    './datasets/kalacheva/london-bike-share-usage-dataset/versions/1/LondonBikeJourneyAug2023.csv'
 )
 
-unique_start = df["Start station"].unique()
-unique_end = df["End station"].unique()
+unique_start = df['Start station'].unique()
+unique_end = df['End station'].unique()
 
 print(len(unique_start))
 print(len(unique_end))
@@ -35,9 +35,9 @@ print(len(unique_total))
 stations_queried = {}
 
 for i, station in enumerate(unique_total):
-    url = f"https://api.tfl.gov.uk/BikePoint/Search?query={station}&app_id={TFL_APP_ID}"
+    url = f'https://api.tfl.gov.uk/BikePoint/Search?query={station}&app_id={TFL_APP_ID}'
     print(url)
-    print("Count: ", i)
+    print('Count: ', i)
     response = requests.get(url, timeout=3000)
     response_json = response.json()
     stations_queried[station] = response_json
@@ -46,5 +46,5 @@ for i, station in enumerate(unique_total):
 
 json_str = json.dumps(stations_queried)
 
-with open(TFL_STATIONS, "w", encoding="utf8") as f:
+with open(TFL_STATIONS, 'w', encoding='utf8') as f:
     f.write(json_str)
