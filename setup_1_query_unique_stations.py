@@ -1,5 +1,7 @@
 """
 Uses the dataset kalacheva/london-bike-share-usage-dataset and generates a list of unique stations, querying their full entry from the TFL API.
+
+Writes to the path TFL_STATIONS.
 """
 
 import json
