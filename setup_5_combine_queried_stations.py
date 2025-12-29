@@ -3,17 +3,17 @@ Final step of the station query.
 
 Combines the final results of the TFL and OSM station queries.
 
-Reads from OSM_FILTERED, TFL_STATIONS.
+Reads from OSM_FILTERED, TFL_FILTERED.
 Writes to COMBINED_STATIONS.
 '''
 
 import json
 
-from constants.dataset_paths import COMBINED_STATIONS, OSM_FILTERED, TFL_STATIONS
+from constants.dataset_paths import COMBINED_STATIONS, TFL_FILTERED, OSM_FILTERED
 
 with open(OSM_FILTERED, 'r', encoding='utf8') as osm_f:
     osm_queried_stations = json.load(osm_f)
-    with open(TFL_STATIONS, 'r', encoding='utf8') as tfl_f:
+    with open(TFL_FILTERED, 'r', encoding='utf8') as tfl_f:
         tfl_queried_stations = json.load(tfl_f)
 
         combined_lookup = {}
@@ -72,7 +72,6 @@ with open(OSM_FILTERED, 'r', encoding='utf8') as osm_f:
 
         for tfl_station_name, tfl_station_value in tfl_queried_stations.items():
             if tfl_station_value:
-                tfl_station_value = tfl_station_value[0]
                 if tfl_station_name not in combined_lookup:
                     combined_lookup[tfl_station_name] = {
                         'placeId': 0,
