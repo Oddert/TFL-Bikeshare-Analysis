@@ -1,5 +1,9 @@
+"""
+Test file for various OSM map and GeoJSON coropleth visualisations.
+"""
+
 import plotly.express as px
-import plotly.graph_objects as go
+# import plotly.graph_objects as go
 
 import pandas as pd
 
@@ -31,25 +35,25 @@ import pandas as pd
 
 # Sample dataset
 data = {
-    "licence": [
+    'licence': [
         # "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright"
         # Name shortened for df preview
-        "test"
+        'test'
     ],
-    "osm_type": ["way"],
-    "osm_id": [849651127],
-    "lat": [51.4974682],
-    "lon": [-0.1119261],
-    "class": ["highway"],
-    "type": ["primary"],
-    "place_rank": [26],
-    "importance": [0.24404996673231694],
-    "addresstype": ["road"],
-    "name": ["Kennington Road"],
-    "display_name": [
+    'osm_type': ['way'],
+    'osm_id': [849651127],
+    'lat': [51.4974682],
+    'lon': [-0.1119261],
+    'class': ['highway'],
+    'type': ['primary'],
+    'place_rank': [26],
+    'importance': [0.24404996673231694],
+    'addresstype': ['road'],
+    'name': ['Kennington Road'],
+    'display_name': [
         # "Kennington Road, Waterloo, London Borough of Lambeth, London, Greater London, England, SE1 7BX, United Kingdom"
         # Name shortened for df preview
-        "test"
+        'test'
     ],
     # "boundingbox": [["51.4972422", "51.4977018", "-0.1120125", "-0.1118229"]],
 }
