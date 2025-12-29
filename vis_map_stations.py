@@ -5,16 +5,16 @@ Displays a point on an OSM map for all stations with tooltips showing name and c
 import plotly.express as px
 import pandas as pd
 
+from constants.dataset_paths import COMBINED_STATIONS
+
 # Loading an OSM map with plotted points from my queried stations
-# stations_path = './computed_data/osm-supplied-stations-selected-list.json'
-stations_path = './computed_data/tfl-supplied-stations-list.json'
-df = pd.read_json(stations_path)
+df = pd.read_json(COMBINED_STATIONS)
 
 fig = px.scatter_map(
     df,
     lat='lat',
     lon='lon',
-    hover_data=['commonName', 'lat', 'lon'],
+    hover_data=['name', 'lat', 'lon'],
 )
 
 fig.show()
