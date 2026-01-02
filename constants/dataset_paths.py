@@ -15,5 +15,8 @@ OSM_STATIONS = f'{CALCULATED_DATASET_FOLDER}/osm-supplied-stations.json'
 # File to hold the result of re-queried data from the OSM query.
 OSM_FILTERED = f'{CALCULATED_DATASET_FOLDER}/osm-supplied-stations-selected.json'
 
-# File to hold the result of re-queried data from the OSM query.
+# File with the combined station data from all sources.
 COMBINED_STATIONS = f'{CALCULATED_DATASET_FOLDER}/combined-stations.json'
+
+# File with the combined station data in list / array format.
+COMBINED_STATIONS_LIST = f'{CALCULATED_DATASET_FOLDER}/combined-stations-list.json'
