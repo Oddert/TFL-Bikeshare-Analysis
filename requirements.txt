@@ -9,3 +9,4 @@ lux
 plotly.express
 dash
 dash-bootstrap-components
+loguru
