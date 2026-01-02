@@ -1,3 +1,7 @@
+"""
+Test file for Dash related experiments.
+"""
+
 from dash import Dash, html, dcc, callback, Output, Input
 import plotly.express as px
 import pandas as pd
@@ -20,7 +24,10 @@ app = Dash()
 
 # Requires Dash 2.17.0 or later
 app.layout = [
-    html.H1(children='Title of Dash App', style={'textAlign': 'center'}),
+    html.H1(
+        children='Trip duration for Start and End Station',
+        style={'textAlign': 'center'},
+    ),
     dcc.Dropdown(df_bike_data['Start station'].unique(), id='dropdown-start_station'),  # type: ignore
     dcc.Dropdown(df_bike_data['End station'].unique(), id='dropdown-end_station'),  # type: ignore
     dcc.Graph(id='graph-content'),
@@ -38,7 +45,7 @@ def update_start_station(start_station, end_station):
     )
     dff = df_bike_data[mask]
     # dff.groupby(pd.Grouper(key='Start date', axis=0, freq='2D', sort=True)).sum()
-    print(dff.groupby(dff['Start date'].dt.day)['Total duration'].mean())
+    # print(dff.groupby(dff['Start date'].dt.day)['Total duration'].mean())
     print(dff)
     return px.line(dff, x='Start date', y='Total duration')
 

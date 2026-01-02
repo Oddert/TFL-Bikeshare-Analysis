@@ -1,3 +1,7 @@
+"""
+Test file for Plotly related experiments.
+"""
+
 import matplotlib.pyplot as plt
 
 # Define data.
@@ -8,10 +12,10 @@ plt.scatter(x, y)
 # Annotate each point with its coordinate.
 for i in range(len(x)):
     plt.annotate(
-        f"({x[i]}, {y[i]})",
+        f'({x[i]}, {y[i]})',
         (x[i], y[i]),
-        textcoords="offset points",
+        textcoords='offset points',
         xytext=(0, 10),
-        ha="center",
+        ha='center',
     )
 plt.show()
