@@ -46,6 +46,7 @@ print(df_weather.columns)
 df_bike_data = pd.read_csv(
     './datasets/kalacheva/london-bike-share-usage-dataset/versions/1/LondonBikeJourneyAug2023.csv'
 )
+
 # Ensure Start date is parsed as datetime
 df_bike_data['Start date'] = pd.to_datetime(df_bike_data['Start date'])
 
@@ -176,12 +177,9 @@ def graph(
     start_date = datetime(2023, 8, range_date[0])
     end_date = datetime(2023, 8, range_date[1], 23, 59, 59)
 
-    print(df_merged['date_day'])
-    print(type(df_merged['date_day']))
-    print(df_merged['date_day'][0])
-    print(type(df_merged['date_day'][0]))
-
-    date_mask = (df_merged['date_day'] >= start_date) & (df_merged['date_day'] <= end_date)
+    date_mask = (df_merged['date_day'] >= start_date) & (
+        df_merged['date_day'] <= end_date
+    )
 
     if mode == 'station':
         mask = date_mask & df_merged['Start station'] == start_station
@@ -207,9 +205,9 @@ def graph(
 
     hourly_agg['ratio'] = hourly_agg[trip_key] / hourly_agg['weather_agg']
 
-    fig = go.Figure()
+    fig_line = go.Figure()
 
-    fig.add_trace(
+    fig_line.add_trace(
         go.Scatter(
             x=hourly_agg['date_hour'],
             y=hourly_agg[trip_key],
@@ -219,7 +217,7 @@ def graph(
         )
     )
 
-    fig.add_trace(
+    fig_line.add_trace(
         go.Scatter(
             x=hourly_agg['date_hour'],
             y=hourly_agg['ratio' if 'use_ratio' in use_ratio else 'weather_agg'],
@@ -229,7 +227,7 @@ def graph(
         )
     )
 
-    fig.update_layout(
+    fig_line.update_layout(
         title='Average Trip Duration and Trip Volume per Hour (August 2023)',
         xaxis=dict(title='hour'),
         yaxis=dict(title=y1_label, side='left'),
@@ -239,7 +237,7 @@ def graph(
 
     # fig.update_xaxes(rangeslider_visible=True)
 
-    return fig
+    return fig_line
 
 
 if __name__ == '__main__':
