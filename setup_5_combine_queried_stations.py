@@ -1,11 +1,11 @@
-'''
+"""
 Final step of the station query.
 
 Combines the final results of the TFL and OSM station queries.
 
 Reads from OSM_FILTERED, TFL_FILTERED.
 Writes to COMBINED_STATIONS.
-'''
+"""
 
 import json
 
@@ -22,6 +22,7 @@ with open(OSM_FILTERED, 'r', encoding='utf8') as osm_f:
             if osm_station_value:
                 if osm_station_name not in combined_lookup:
                     combined_lookup[osm_station_name] = {
+                        'bikeDataStationName': osm_station_name,
                         'tflType': '',
                         'id': '',
                         'url': '',
@@ -33,6 +34,9 @@ with open(OSM_FILTERED, 'r', encoding='utf8') as osm_f:
                         'lat': 51.486343,
                         'lon': -0.122492,
                     }
+                combined_lookup[osm_station_name]['bikeDataStationName'] = (
+                    osm_station_name
+                )
                 combined_lookup[osm_station_name]['placeId'] = osm_station_value[
                     'place_id'
                 ]
@@ -74,6 +78,7 @@ with open(OSM_FILTERED, 'r', encoding='utf8') as osm_f:
             if tfl_station_value:
                 if tfl_station_name not in combined_lookup:
                     combined_lookup[tfl_station_name] = {
+                        'bikeDataStationName': tfl_station_name,
                         'placeId': 0,
                         'licence': '',
                         'osmType': '',
@@ -89,6 +94,9 @@ with open(OSM_FILTERED, 'r', encoding='utf8') as osm_f:
                         'displayName': tfl_station_value['commonName'],
                         'boundingBox': [],
                     }
+                combined_lookup[tfl_station_name]['bikeDataStationName'] = (
+                    tfl_station_name
+                )
                 combined_lookup[tfl_station_name]['tflType'] = tfl_station_value[
                     '$type'
                 ]
