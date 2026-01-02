@@ -24,7 +24,7 @@ with open(TFL_STATIONS, 'r', encoding='utf8') as f:
     for i, item in enumerate(queried_stations):
         # print('-------')
         # print(item)
-        if len(queried_stations[item]) == 0:
+        if not queried_stations[item] or len(queried_stations[item]) == 0:
             stations_no_result[item] = queried_stations[item]
             # print('no items')
 
