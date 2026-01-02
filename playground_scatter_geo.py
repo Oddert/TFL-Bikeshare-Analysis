@@ -6,8 +6,12 @@ import pandas as pd
 df_bike_data = pd.read_csv(
     './datasets/kalacheva/london-bike-share-usage-dataset/versions/1/LondonBikeJourneyAug2023.csv'
 )
-df_bike_data['Start date'] = pd.to_datetime(df_bike_data['Start date'], format='%m/%d/%Y %H:%M')
-df_bike_data['End date'] = pd.to_datetime(df_bike_data['End date'], format='%m/%d/%Y %H:%M')
+df_bike_data['Start date'] = pd.to_datetime(
+    df_bike_data['Start date'], format='%m/%d/%Y %H:%M'
+)
+df_bike_data['End date'] = pd.to_datetime(
+    df_bike_data['End date'], format='%m/%d/%Y %H:%M'
+)
 
 target_start_date = datetime.strptime('8/5/2023 0:00', '%m/%d/%Y %H:%M')
 target_end_date = datetime.strptime('8/5/2023 23:59', '%m/%d/%Y %H:%M')
