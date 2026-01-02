@@ -10,3 +10,4 @@ plotly.express
 dash
 dash-bootstrap-components
 loguru
+ruff
