@@ -1,4 +1,4 @@
-'''Holds application level constant variables denoting where specific files are output to / read from.'''
+"""Holds application level constant variables denoting where specific files are output to / read from."""
 
 # Top-level folder containing the computed datasets.
 CALCULATED_DATASET_FOLDER = 'computed_data'

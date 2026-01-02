@@ -292,7 +292,9 @@ def graph(
         #     hover_data=['name', 'lat', 'lon'],
         # )
 
-        start_station_data = df_stations[df_stations['bikeDataStationName'] == start_station].reset_index()
+        start_station_data = df_stations[
+            df_stations['bikeDataStationName'] == start_station
+        ].reset_index()
         if len(start_station_data):
             start_station_data = start_station_data.iloc[0]
 

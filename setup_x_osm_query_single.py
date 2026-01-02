@@ -21,7 +21,9 @@ station = 'Strand, Strand_OLD'
 if len(sys.argv) > 1:
     logger.info(f'Received command line arguments: {sys.argv}')
     if len(sys.argv) > 2:
-        logger.warning('Multiple arguments were passed in, only the first will be used for the query. This could indicate a delineator in your station name, for example a comma. Please check and consider adding quotation marks to ensure thw whole name is used.')
+        logger.warning(
+            'Multiple arguments were passed in, only the first will be used for the query. This could indicate a delineator in your station name, for example a comma. Please check and consider adding quotation marks to ensure thw whole name is used.'
+        )
     station = sys.argv[1]
 
 url = f'https://nominatim.openstreetmap.org/search?q={station}&format=json&countrycodes=gb'
@@ -35,9 +37,7 @@ except FileNotFoundError:
     stations_queried = {}
     logger.info('No existing list found, will write a single result...')
 
-response = requests.get(
-    url, timeout=3000, headers={'User-Agent': 'robyn veitch'}
-)
+response = requests.get(url, timeout=3000, headers={'User-Agent': 'robyn veitch'})
 response_json = response.json()
 stations_queried[station] = response_json
 

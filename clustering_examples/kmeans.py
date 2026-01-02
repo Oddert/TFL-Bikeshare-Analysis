@@ -17,8 +17,8 @@ for idx in range(k):
     center = 2 * (2 * np.random.random((x.shape[1],)) - 1)
     points = []
     cluster = {
-        "center": center,
-        "points": [],
+        'center': center,
+        'points': [],
     }
     clusters[idx] = cluster
 
@@ -42,22 +42,22 @@ def assign_clusters(x, clusters):
         curr_x = x[idx]
 
         for i in range(k):
-            dis = distance(curr_x, clusters[i]["center"])
+            dis = distance(curr_x, clusters[i]['center'])
             dist.append(dis)
 
         curr_cluster = np.argmin(dist)
-        clusters[curr_cluster]["points"].append(curr_x)
+        clusters[curr_cluster]['points'].append(curr_x)
     return clusters
 
 
 def update_clusters(x, clusters):
     for i in range(k):
-        points = np.array(clusters[i]["points"])
+        points = np.array(clusters[i]['points'])
 
         if points.shape[0] > 0:
             new_center = points.mean(axis=0)
-            clusters[i]["center"] = new_center
-            clusters[i]["points"] = []
+            clusters[i]['center'] = new_center
+            clusters[i]['points'] = []
     return clusters
 
 
@@ -66,7 +66,7 @@ def pred_cluster(x, clusters):
     for i in range(x.shape[0]):
         dist = []
         for j in range(k):
-            dist.append(distance(x[i], clusters[j]["center"]))
+            dist.append(distance(x[i], clusters[j]['center']))
         pred.append(np.argmin(dist))
     return pred
 
@@ -78,6 +78,6 @@ pred = pred_cluster(x, clusters)
 plt.scatter(x[:, 0], x[:, 1], c=pred)
 
 for i in clusters:
-    center = clusters[i]["center"]
-    plt.scatter(center[0], center[1], marker="^", c="red")
+    center = clusters[i]['center']
+    plt.scatter(center[0], center[1], marker='^', c='red')
 plt.show()

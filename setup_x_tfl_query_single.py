@@ -22,7 +22,9 @@ station = ''
 if len(sys.argv) > 1:
     logger.info(f'Received command line arguments: {sys.argv}')
     if len(sys.argv) > 2:
-        logger.warning('Multiple arguments were passed in, only the first will be used for the query. This could indicate a delineator in your station name, for example a comma. Please check and consider adding quotation marks to ensure thw whole name is used.')
+        logger.warning(
+            'Multiple arguments were passed in, only the first will be used for the query. This could indicate a delineator in your station name, for example a comma. Please check and consider adding quotation marks to ensure thw whole name is used.'
+        )
     station = sys.argv[1]
 
 url = f'https://api.tfl.gov.uk/BikePoint/Search?query={station}&app_id={TFL_APP_ID}'

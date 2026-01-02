@@ -143,6 +143,7 @@ print(df_merged.columns)
 
 # print(dff)
 
+
 @callback(
     Output('graph-content', 'figure'),
     Input('radio-compare', 'value'),
