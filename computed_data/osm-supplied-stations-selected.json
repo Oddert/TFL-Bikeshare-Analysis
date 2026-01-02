@@ -31,22 +31,7 @@
     "display_name": "Concert Hall Approach 2, Concert Hall Approach, South Bank, Waterloo, London Borough of Lambeth, London, Greater London, England, SE1 7ES, United Kingdom",
     "boundingbox": ["51.5048358", "51.5049358", "-0.1154224", "-0.1153224"]
   },
-  "Strand, Strand_OLD": {
-    "place_id": 254217158,
-    "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
-    "osm_type": "way",
-    "osm_id": 302776213,
-    "lat": "55.9528854",
-    "lon": "-3.1739027",
-    "class": "building",
-    "type": "yes",
-    "place_rank": 30,
-    "importance": 7.767071030742378e-5,
-    "addresstype": "building",
-    "name": "Abbey Strand Centre",
-    "display_name": "Abbey Strand Centre, Abbey Strand, Abbeyhill, Old Town, City of Edinburgh, Alba / Scotland, EH8 8DU, United Kingdom",
-    "boundingbox": ["55.9527937", "55.9529906", "-3.1740051", "-3.1737746"]
-  },
+  "Strand, Strand_OLD": null,
   "Parkway, Camden Town": {
     "place_id": 258981560,
     "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",

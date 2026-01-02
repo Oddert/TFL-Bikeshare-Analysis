@@ -11114,5 +11114,15 @@
     }
   ],
   "Mechanical Workshop Penton": [],
-  "Mechanical Workshop Clapham": []
+  "Mechanical Workshop Clapham": [],
+  "": {
+    "$type": "Tfl.Api.Presentation.Entities.ApiError, Tfl.Api.Presentation.Entities",
+    "timestampUtc": "2025-12-31T13:54:48.2983989Z",
+    "exceptionType": "ApiArgumentException",
+    "httpStatusCode": 400,
+    "httpStatus": "BadRequest",
+    "relativeUri": "/BikePoint/Search?query=",
+    "message": "A value is required but was not present in the request. "
+  },
+  "Strand, Stand_OLD": []
 }
