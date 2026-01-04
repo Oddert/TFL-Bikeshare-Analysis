@@ -46,6 +46,7 @@ def update_start_station(start_station, end_station):
         df_bike_data['End station'] == end_station
     )
     dff = df_bike_data[mask]
+    dff.sort_values(by='Start date', inplace=True, ascending=False)
     # dff.groupby(pd.Grouper(key='Start date', axis=0, freq='2D', sort=True)).sum()
     # print(dff.groupby(dff['Start date'].dt.day)['Total duration'].mean())
     print(dff)
