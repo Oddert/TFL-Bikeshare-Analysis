@@ -24,13 +24,13 @@ app = Dash()
 
 # Requires Dash 2.17.0 or later
 app.layout = [
-    html.H1(children='Title of Dash App', style={'textAlign': 'center'}),
+    html.H1(children='Avg. Duration & Trip Count by Hour', style={'textAlign': 'center'}),
     dcc.Dropdown(df_bike_data['Start station'].unique(), id='dropdown-start_station'),  # type: ignore
     dcc.Dropdown(df_bike_data['End station'].unique(), id='dropdown-end_station'),  # type: ignore
     dcc.RadioItems(
         options=[
-            {'label': 'start', 'value': 'From start station'},
-            {'label': 'start-end', 'value': 'From Start to End station'},
+            {'label': 'From start station','value': 'start'},
+            {'label': 'From Start to End station','value': 'start-end'},
         ],
         value='start',
         id='radio-use_stations',
