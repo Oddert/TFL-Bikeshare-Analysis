@@ -1,5 +1,11 @@
 # London Bike Share August 2023 Analysis
 
+## Instructions for Project Assessors
+
+To review the submission for this project please use the file `index.ipynb`.
+
+If using Google Colab or similar, once uploaded please add the contents of `computed_data/` to the session.
+
 ## File Structure & Naming Pattern
 
 Files prefixed with `playground_` or `example_` are working files used to try ideas or contain modified exampels from the internet.
@@ -28,3 +34,20 @@ Number|Start date|Start station number|Start station|End date|End station number
 132825190|8/1/2023 0:00|1190|"Kennington Lane Rail Bridge, Vauxhall"|8/1/2023 0:17|1059|"Albert Embankment, Vauxhall"|41267|CLASSIC|16m 47s|1007128
 132825191|8/1/2023 0:00|983|"Euston Road, Euston"|8/1/2023 0:11|3500|"Baldwin Street, St. Luke's"|53180|CLASSIC|11m 6s|666395
 132825192|8/1/2023 0:01|3479|"Old Brompton Road, South Kensington"|8/1/2023 0:12|1140|"Grosvenor Road, Pimlico"|53431|CLASSIC|11m 53s|713059
+<!-- 
+
+Liverpool Street
+Paddington
+Tottenham Court Road
+Waterloo
+Stratford
+Victoria
+London Bridge
+Farringdon
+Bond Street
+Euston
+St Pancreas
+Whitechappel
+London King's Cross
+Clapham Junction
+Highbury & Islington -->
