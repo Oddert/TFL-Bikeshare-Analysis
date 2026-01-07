@@ -54,7 +54,7 @@ print('10 trip occurrences: ', df_unique_od['count'].value_counts().get(10))  # 
 # Take the largest number of repeat trips for reference (York Way, KX).
 print('Max repeat values: ', df_unique_od.max())
 
-kx = 'York Way, Kings Cross'
+kx = 'Serpentine Car Park, Hyde Park'
 
 # Find a subset of data matching YW, Kings Cross as a start station.
 # This will for the basis of later queries examining the validity of this subset.
