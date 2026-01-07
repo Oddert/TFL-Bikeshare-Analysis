@@ -24,6 +24,9 @@ weather_keys = {
 df_weather = pd.read_csv(
     './datasets/zongaobian/london-weather-data-from-1979-to-2023/versions/1/london_weather_data_1979_to_2023.csv'
 )
+df_bike_data = pd.read_csv(
+    './datasets/kalacheva/london-bike-share-usage-dataset/versions/1/LondonBikeJourneyAug2023.csv'
+)
 
 # DATE: Date in YYYYMMDD format.
 # TX: Daily maximum temperature in 0.1°C.
@@ -37,15 +40,13 @@ df_weather = pd.read_csv(
 # HU: Daily relative humidity in %.
 # CC: Daily cloud cover in oktas.
 
+# Create a new column for a datetime timestamp on the weather data.
 df_weather['date_formatted'] = pd.to_datetime(df_weather['DATE'], format='%Y%m%d')
 
 print('>>> df_weather')
 print(df_weather)
 print(df_weather.columns)
-df_bike_data = pd.read_csv(
-    './datasets/kalacheva/london-bike-share-usage-dataset/versions/1/LondonBikeJourneyAug2023.csv'
-)
-# Ensure Start date is parsed as datetime
+# Ensure Start date is parsed to datetime
 df_bike_data['Start date'] = pd.to_datetime(df_bike_data['Start date'])
 
 print('>>> df_bike_data')

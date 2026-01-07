@@ -262,6 +262,7 @@ def graph(
         lat='lat',
         lon='lon',
         hover_data=['name', 'lat', 'lon'],
+        zoom=11,
     )
 
     if mode == 'station':
