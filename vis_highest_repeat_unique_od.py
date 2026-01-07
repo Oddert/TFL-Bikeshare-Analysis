@@ -8,6 +8,8 @@ import pandas as pd
 
 import plotly.express as px
 
+x_axis_quant = 20
+
 df = pd.read_csv(
     './datasets/kalacheva/london-bike-share-usage-dataset/versions/1/LondonBikeJourneyAug2023.csv'
 )
@@ -27,7 +29,7 @@ df_unique_od = (
     .rename(columns={0: 'count'})
 )
 
-df_sorted = df_unique_od.sort_values('count', ascending=False).reset_index().head(10)
+df_sorted = df_unique_od.sort_values('count', ascending=False).reset_index().head(x_axis_quant)
 print(df_sorted)
 
 fig = px.bar(df_sorted, x='Start station', y='count')
